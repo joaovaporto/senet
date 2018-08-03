@@ -1,0 +1,30 @@
+Formulário para solicitação de trabalho (jogo)
+
+A solicitação (abaixo) deve conter os dois (ou três) elementos da equipe e o jogo desejado. Solicitações sem a especificação dos membros serão desconsideradas. 
+Solicitações para trabalho individual devem estar justificadas (por que não em grupo?). Gosto pessoal não é justificativa.
+
+Pedidos para compor a primeira definição de jogos devem ser enviados via Moodle até dia previsto no cronograma da disciplina para a definição de grupos e jogos, dez horas da manha. 
+Antes do horáriode aula desse dia montarei a primeira lista de pedidos a divulgarei.
+
+Eventuais conflitos serão resolvidos por sorteio na aula do dia previsto no cronograma da disciplina para a definição de grupos e jogos.
+Se todos os membros de uma equipe em conflito faltarem, perdem o direito à participação no sorteio. 
+
+Após esse dia, a prioridade de alocação de jogo será a ordem de chegada do pedido (no Moodle).
+
+Alunos repetentes terão prioridade de escolha, se estiverem retomando um desenvolvimento iniciado em semestre anterior. 
+Essa situação deverá ser explicitada no pedido.
+
+Antes de fazerem seus pedidos, confiram a lista de jogos proibidos, publicada na página da disciplina - ISSO É MUITO IMPORTANTE.
+
+RECOMENDAÇÃO: mantenham sigilo a respeito do jogo escolhido, pois outras equipes podem gostar dele e pedi-lo também.
+
+--------
+Jogo solicitado: Senet
+Aluno1: João V. A. Porto
+Aluno2: ____________
+Aluno3: ____________
+Trata-se de uma equipe com repetente(s) retomando um jogo em desenvolvimento em semestre anterior?? Não
+
+Justificativa para fazer o trabalho sozinho:
+Incompatibilidade entre o cronograma dos meus pares e o meu, impossibilitando, portanto, sincronização não só para desenvolvimento das atividades do projeto, mas também para deliberações coletivas sobre o mesmo - o que creio ser fundamental.
+Visando evitar problemas decorrentes de tais restrições e já experienciados outrora, acredito que o trabalho individual seja a melhor alternativa.
