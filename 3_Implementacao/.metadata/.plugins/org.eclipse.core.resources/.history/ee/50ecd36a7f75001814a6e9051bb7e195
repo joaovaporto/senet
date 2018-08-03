@@ -1,0 +1,9 @@
+package senet;
+
+public class SemPeoesDefinidosException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+	
+	public SemPeoesDefinidosException() {
+		super("Os peões não foram definidos.")
+	}
+}

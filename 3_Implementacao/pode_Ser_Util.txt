@@ -1,0 +1,76 @@
+	// TODO - verificar se necessário
+	public void configurarJogada(JogadaSenet jogada, int casaPeaoMovimentado) {
+		jogada.alterarPartidaFinalizada(obterLiberacaoEmAndamento());
+		jogada.alterarJogadorVenceu(jogador1.obterVencedor());
+		jogada.alterarPontuacaoAtualizada(obterPontuacaoAtual());
+		jogada.alterarCasaPeaoMovimentado(casaPeaoMovimentado);
+		jogada.alterarJogadorPassouVez(!jogador1.obterJogadorDaVez());
+	}
+
+Casa[] casasAvaliadas = new Casas[6];
+		
+		for (int i = 0; i < deslocamento + 2; i++)
+			casasAvaliadas[i] = obterCasa(i+numeroCasa);
+		
+		if (casasAvaliadas[deslocamento].obterOcupada()) {
+			if (corPeaoAdversario.equals(casasAvaliadas[deslocamento - 1].obterCorPeaoOcupante()))
+				return false;
+		
+			if (corPeaoAdversario.equals(casasAvaliadas[deslocamento + 1].obterCorPeaoOcupante()))
+				return false;
+
+		// configuracaoTabuleiro.alterarGravetosRiscados(gravetos);
+		// configuracaoTabuleiro.alterarCorPeaoJogador(jogador1.obterCorPeao());
+		// configuracaoTabuleiro.alterarCorPeaoAdversario(jogador2.obterCorPeao());
+		// configuracaoTabuleiro.alterarQtdPeoesJogadorLiberados();
+		// configuracaoTabuleiro.alterarQtdPeoesAdversarioLiberados();
+		// configuracaoTabuleiro.alterarNumeroCasaPeaoLiberacao(jogador1.obterNumeroCasaPeaoLiberacao());
+		// configuracaoTabuleiro.alterarPontuacao(obterPontuacaoAtual());
+
+		if (casaDestino.obterNumero() > 27)
+			if (obterCasa(26).obterOcupada())
+				return false;
+
+		if (obterCasa(numeroCasa + 2).obterOcupada())
+			if (corPeaoAdversario.equals(obterCasa(numeroCasa + 2).obterCorPeaoOcupante()))
+				if (obterCasa(numeroCasa + 3).obterOcupada())
+					if (corPeaoAdversario.equals(obterCasa(numeroCasa + 3).obterCorPeaoOcupante())) {
+						if (obterCasa(numeroCasa + 1).obterOcupada())
+							if (corPeaoAdversario.equals(obterCasa(numeroCasa + 1).obterCorPeaoOcupante()))
+								return true;
+						
+						if (obterCasa(numeroCasa + 4).obterOcupada())
+							if (corPeaoAdversario.equals(obterCasa(numeroCasa + 1).obterCorPeaoOcupante()))
+								return true;
+					}
+
+	/*
+	public void alterarQtdPeoesJogadorLiberados() {		
+		qtdPeoesJogadorLiberados = 0;
+		
+		if (corPeaoJogador == null)
+			return;
+		
+		int qtdPeoesTabuleiro = 0;
+		
+		for (int i = 0; i < 30 ; i++)
+			if (conteudoCasas[i].equals(corPeaoJogador))
+				qtdPeoesTabuleiro++;
+		
+		qtdPeoesJogadorLiberados = 7 - qtdPeoesTabuleiro;
+	}
+
+	public void alterarQtdPeoesAdversarioLiberados() {
+		qtdPeoesAdversarioLiberados = 0;
+		
+		if (corPeaoAdversario == null)
+			return;
+		
+		int qtdPeoesTabuleiro = 0;
+		
+		for (int i = 0; i < 30 ; i++)
+			if (conteudoCasas[i].equals(corPeaoAdversario))
+				qtdPeoesTabuleiro++;
+		
+		qtdPeoesAdversarioLiberados = 7 - qtdPeoesTabuleiro;
+	}*/

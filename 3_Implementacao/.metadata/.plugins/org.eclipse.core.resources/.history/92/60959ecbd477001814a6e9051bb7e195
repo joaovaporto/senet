@@ -1,0 +1,127 @@
+package senet;
+
+import interfaceGrafica.Constante;
+
+public class ConfiguracaoTabuleiro {
+
+	protected String[] conteudoCasas; // TODO - verificar se String é o mais apropriado
+	protected boolean[] gravetosRiscados;
+	protected String corPeaoJogador;
+	protected String corPeaoAdversario;
+	protected int qtdPeoesJogadorLiberados;
+	protected int qtdPeoesAdversarioLiberados;
+	protected int numeroCasaPeaoLiberacao;
+	protected int pontuacao;
+	protected String nomeJogadorDaVez;
+	
+	public ConfiguracaoTabuleiro() {
+		conteudoCasas = new String[30];
+		gravetosRiscados = new boolean[4];
+		corPeaoJogador = null;
+		corPeaoAdversario = null;
+		qtdPeoesJogadorLiberados = 0;
+		qtdPeoesAdversarioLiberados = 0;
+		numeroCasaPeaoLiberacao = 0;
+		pontuacao = 0;
+		nomeJogadorDaVez = "";
+	}
+	
+	public void alterarConteudoCasas(Casa[] casas) {
+		for (int i = 0; i < 30 ; i++)
+			conteudoCasas[i] = Constante.CASA_VAZIA;
+		
+		if (casas == null)
+			return;
+		
+		for (int i = 0; i < 30 ; i++)
+			if (casas[i].obterOcupada())
+				conteudoCasas[i] = casas[i].obterCorPeaoOcupante();
+	}
+
+	public void alterarCorPeaoJogador(String corPeaoJogador) {
+		this.corPeaoJogador = corPeaoJogador;
+	}
+	
+	public void alterarCorPeaoAdversario() {	
+		if (corPeaoJogador.equals(Constante.PEAO_CLARO))
+			corPeaoAdversario = Constante.PEAO_ESCURO;
+		else if (corPeaoJogador.equals(Constante.PEAO_ESCURO))
+			corPeaoAdversario = Constante.PEAO_CLARO;
+		else
+			corPeaoAdversario = null;
+	}
+
+	public void alterarQtdPeoesJogadorLiberados() {		
+		qtdPeoesJogadorLiberados = 0;
+		
+		for (int i = 0; i < 30 ; i++)
+			if (conteudoCasas[i].equals(corPeaoJogador))
+				qtdPeoesJogadorLiberados++;
+	}
+
+	public void alterarQtdPeoesAdversarioLiberados() {
+		qtdPeoesAdversarioLiberados = 0;
+		
+		for (int i = 0; i < 30 ; i++)
+			if (conteudoCasas[i].equals(corPeaoAdversario))
+				qtdPeoesAdversarioLiberados++;
+	}
+
+	public void alterarNumeroCasaPeaoLiberacao(int numeroCasaPeaoLiberacao) {
+		this.numeroCasaPeaoLiberacao = numeroCasaPeaoLiberacao;
+	}
+
+	/**
+	 * 
+	 * @param pontuacao
+	 */
+	public void alterarPontuacao(int pontuacao) {
+		this.pontuacao = pontuacao;
+	}
+
+	// TODO - padronizar metodos alterar
+	public void alterarNomeJogadorDaVez(String nomeJogadorDaVez) {
+		this.nomeJogadorDaVez = nomeJogadorDaVez;
+	}
+
+	public String[] obterConteudoCasas() {
+		return conteudoCasas;
+	}
+
+	public String obterCorPeaoJogador() {
+		return corPeaoJogador;
+	}
+	
+	public String obterCorPeaoAdversario() {
+		return corPeaoAdversario;
+	}
+
+	public int obterQtdPeoesJogadorLiberados() {
+		return qtdPeoesJogadorLiberados;
+	}
+
+	public int obterQtdPeoesAdversarioLiberados() {
+		return qtdPeoesAdversarioLiberados;
+	}
+
+	public int obterNumeroCasaPeaoLiberacao() {
+		return numeroCasaPeaoLiberacao;
+	}
+
+	public int obterPontuacao() {
+		return pontuacao;
+	}
+
+	public String obterNomeJogadorDaVez() {
+		return nomeJogadorDaVez;
+	}
+	
+	public boolean[] obterGravetosRiscados() {
+		return gravetosRiscados;	
+	}
+
+	public void alterarGravetosRiscados(Graveto[] gravetos) {
+		for (int i = 0; i < 4; i++)
+			gravetosRiscados[i] = gravetos[i].obterRiscado();
+	}
+}

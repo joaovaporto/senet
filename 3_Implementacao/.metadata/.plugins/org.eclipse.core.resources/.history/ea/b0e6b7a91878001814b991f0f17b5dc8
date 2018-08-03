@@ -1,0 +1,24 @@
+package senet;
+
+public class Peao {
+
+	protected String cor;
+	protected boolean liberado; // TODO - verificar se necessário, acho que não
+
+	public Peao(String cor) {
+		this.cor = cor;
+	}
+	
+	public String obterCor() {
+		return cor;
+	}
+
+	/**
+	 * 
+	 * @param cor
+	 */
+	public void alterarCor(String cor) {
+		throw new UnsupportedOperationException();
+	}
+
+}

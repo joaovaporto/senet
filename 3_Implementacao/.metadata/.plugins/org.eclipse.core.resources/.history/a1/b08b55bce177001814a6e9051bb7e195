@@ -1,0 +1,171 @@
+package servidor;
+
+import br.ufsc.inf.leobr.cliente.Jogada;
+import br.ufsc.inf.leobr.cliente.OuvidorProxy;
+import br.ufsc.inf.leobr.cliente.Proxy;
+import br.ufsc.inf.leobr.cliente.exception.ArquivoMultiplayerException;
+import br.ufsc.inf.leobr.cliente.exception.JahConectadoException;
+import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
+import br.ufsc.inf.leobr.cliente.exception.NaoPossivelConectarException;
+import interfaceGrafica.*;
+import senet.*;
+
+public class AtorServidor implements OuvidorProxy {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	protected AtorJogador atorJogador;
+	protected Proxy proxy;
+	protected String nomeJogador;
+	protected String nomeServidor;
+	protected boolean conectado;
+	
+	public AtorServidor(AtorJogador atorJogador) {
+		this.atorJogador = atorJogador;
+		proxy = Proxy.getInstance();
+		proxy.addOuvinte(this);
+		conectado = false;
+	}
+
+	/**
+	 * 
+	 * @param servidor
+	 * @param nome
+	 * @throws ArquivoMultiplayerException 
+	 * @throws NaoPossivelConectarException 
+	 * @throws  
+	 * @throws NaoPossivelConectarException 
+	 * @throws JahConectadoException 
+	 */
+	public boolean conectar(String nome, String servidor) {
+		try {
+			proxy.conectar(servidor, nome);
+			nomeJogador = nome;
+			nomeServidor = servidor;
+			conectado = true;
+			return true;
+		} catch (JahConectadoException | NaoPossivelConectarException | ArquivoMultiplayerException e) {
+			return false;
+		}
+	}
+
+	public boolean desconectar() {
+		try {
+			proxy.desconectar();
+			conectado = false;
+			return true;
+		} catch (NaoConectadoException e) {
+			return false;
+		}
+	}
+
+	public boolean iniciarPartida() {
+		try {
+			proxy.iniciarPartida(2);
+			return true;
+		} catch (NaoConectadoException e) {
+			return false;
+		}		
+	}
+
+	public Object receberJogada() {
+		// TODO - implement AtorServidor.receberJogada
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean restabelecerConexao() {
+		try {
+			proxy.conectar(nomeServidor, nomeJogador);
+			conectado = true;
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * 
+	 * @param jogada
+	 */
+	public void enviarJogada(JogadaSenet jogada) {
+
+	}
+	
+	/**
+	 * 
+	 * @param posicao
+	 */
+	@Override
+	public void iniciarNovaPartida(Integer posicao) {
+		String nomeAdversario = proxy.obterNomeAdversario(-1 * posicao + 3);
+		atorJogador.receberSolicitacaoInicio(posicao, nomeJogador, nomeAdversario);		
+	}
+	
+	public Object procederIniciarNovaPartida() {
+		// TODO - implement AtorServidor.procederIniciarNovaPartida
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean obterServidorConectado() {
+		return conectado;
+	}
+
+	public String obterNomeJogador() {
+		// TODO - implement AtorServidor.obterNomeJogador
+		throw new UnsupportedOperationException();
+	}
+
+	public String obterNomeServidor() {
+		// TODO - implement AtorServidor.obterNomeServidor
+		throw new UnsupportedOperationException();
+	}
+
+	public void alterarNomeJogador() {
+		// TODO - implement AtorServidor.alterarNomeJogador
+		throw new UnsupportedOperationException();
+	}
+
+	public void alterarNomeServidor() {
+		// TODO - implement AtorServidor.alterarNomeServidor
+		throw new UnsupportedOperationException();
+	}
+
+	public void alterarAtorJogador(AtorJogador atorJogador) {
+		this.atorJogador = atorJogador;
+	}
+
+
+
+	@Override
+	public void finalizarPartidaComErro(String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void receberMensagem(String msg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void receberJogada(Jogada jogada) {
+		JogadaSenet jogadaSenet = (JogadaSenet) jogada;
+		atorJogador.receberJogada(jogadaSenet);
+	}
+
+	@Override
+	public void tratarConexaoPerdida() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void tratarPartidaNaoIniciada(String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

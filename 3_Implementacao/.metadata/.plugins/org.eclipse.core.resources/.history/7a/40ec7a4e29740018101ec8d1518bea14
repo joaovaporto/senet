@@ -1,0 +1,339 @@
+package senet;
+
+import interfaceGrafica.Constante;
+
+public class Tabuleiro {
+
+	protected Jogador jogador1;
+	protected Jogador jogador2;
+	protected boolean partidaEmAndamento;
+	protected boolean liberacaoEmAndamento;
+	protected Casa[] casas;
+	protected Graveto[] gravetos;
+	protected ConfiguracaoTabuleiro configuracaoTabuleiro;
+
+	public Tabuleiro() {
+		partidaEmAndamento = false;
+		liberacaoEmAndamento = false;
+		inicializarGravetos();
+		configuracaoTabuleiro = new ConfiguracaoTabuleiro();
+	}
+	
+	private void inicializarGravetos() {
+		gravetos = new Graveto[4];
+		
+		for (int i = 0; i < 4; i++)
+			gravetos[i] = new Graveto();
+	}
+
+	public JogadaSenet lancarGravetos() {
+		// TODO - implement Tabuleiro.declararLiberacaoPeao
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 */
+	public JogadaSenet moverPeao(Object numeroCasaPeao) {
+		// TODO - implement Tabuleiro.declararLiberacaoPeao
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 */
+	public void declararLiberacaoPeao(int numeroCasaPeao) {
+		// TODO - implement Tabuleiro.declararLiberacaoPeao
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param posicao
+	 * @param nomeJogador
+	 * @param nomeAdversario
+	 */
+	public void iniciarNovaPartida(int posicao, String nomeJogador, String nomeAdversario) {
+		alterarPartidaEmAndamento();
+		inicializarCasas();
+		inicializarJogadores(nomeJogador, nomeAdversario);
+		
+		if (posicao == 1)
+			jogador1.alterarJogadorDaVez();
+		else
+			jogador2.alterarJogadorDaVez();
+		
+		alterarConfiguracaoTabuleiro();
+	}
+
+	private void inicializarJogadores(String nomeJogador, String nomeAdversario) {
+		jogador1 = new Jogador(nomeJogador);
+		jogador2 = new Jogador(nomeAdversario);
+	}
+
+	private void inicializarCasas() {
+		casas = new Casa[30];
+		
+		for (int i = 0; i < 30; i++)
+			casas[i] = new Casa(i+1);
+		
+		for (int i = 0; i < 5; i++) {
+			int j = i + 1;
+			
+			if (j == 27) 
+				continue;
+			
+			obterCasa(j).alterarSegura();
+		}
+		
+		for (int i = 0; i < 14; i++) {
+			obterCasa(i+1).alterarPeao(new Peao(Constante.PEAO_CLARO));
+			
+			if (i % 2 == 0)
+				obterCasa(i+1).alterarPeao(new Peao(Constante.PEAO_ESCURO));
+		}
+	}
+
+	public JogadaSenet desistirPartida() {
+		// TODO - implement Tabuleiro.declararLiberacaoPeao
+		throw new UnsupportedOperationException();
+	}
+
+	public void finalizarPartida() {
+		// TODO - implement Tabuleiro.finalizarPartida
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param jogada
+	 */
+	public void atualizarTabuleiro(JogadaSenet jogada) {
+
+	}
+	
+	// TODO - verificar se não é mais pertinente ir mudando conforme ações da partida
+	public void alterarConfiguracaoTabuleiro() {
+		String[] conteudoCasas = new String[30];
+		boolean[] gravetosRiscados = new boolean[4];
+		int qtdPeoesJogador = 0;
+		int qtdPeoesAdversario = 0;
+		
+		for (int i = 0; i < 30 ; i++) {
+			conteudoCasas[i] = Constante.CASA_VAZIA;
+			
+			if (obterCasa(i+1).obterOcupada()) {
+				conteudoCasas[i] = obterCasa(i+1).obterCorPeaoOcupante();
+				
+				if (conteudoCasas[i] == jogador1.obterCorPeao())
+					qtdPeoesJogador++;
+				else
+					qtdPeoesAdversario++;
+			}
+		}
+		
+		for (int i = 0; i < 4; i++)
+			gravetosRiscados[i] = gravetos[i].obterRiscado();
+		
+		configuracaoTabuleiro.alterarConteudoCasas(conteudoCasas);
+		configuracaoTabuleiro.alterarGravetosRiscados(gravetosRiscados);
+		configuracaoTabuleiro.alterarCorPeaoJogador(jogador1.obterCorPeao());
+		configuracaoTabuleiro.alterarCorPeaoAdversario(jogador2.obterCorPeao());
+		configuracaoTabuleiro.alterarQtdPeoesJogadorLiberados(7 - qtdPeoesJogador);
+		configuracaoTabuleiro.alterarQtdPeoesAdversarioLiberados(7 - qtdPeoesAdversario);
+		configuracaoTabuleiro.alterarNumeroCasaPeaoLiberacao(jogador1.obterNumeroCasaPeaoLiberacao());
+		configuracaoTabuleiro.alterarPontuacao(obterPontuacaoAtual());
+		configuracaoTabuleiro.alterarNomeJogadorDaVez(obterJogadorDaVez().obterNomeJogador());
+	}
+
+	/**
+	 * 
+	 * @param jogada
+	 */
+	public String atualizarPartida(JogadaSenet jogada) {
+		// TODO - implement Tabuleiro.declararLiberacaoPeao
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 * @param deslocamento
+	 */
+	public Object moverPeaoTabuleiro(int numeroCasaPeao, int deslocamento) {
+		// TODO - implement Tabuleiro.moverPeaoTabuleiro
+		throw new UnsupportedOperationException();
+	}
+
+	public void mudarVez() {
+		// TODO - implement Tabuleiro.mudarVez
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param corPeaoJogador
+	 */
+	public Object definirCorPeaoJogadores(Object corPeaoJogador) {
+		// TODO - implement Tabuleiro.definirCorPeaoJogadores
+		throw new UnsupportedOperationException();
+	}
+
+	public void eliminarCasas() {
+		// TODO - implement Tabuleiro.eliminarCasas
+		throw new UnsupportedOperationException();
+	}
+
+	public Object eliminarJogadores() {
+		// TODO - implement Tabuleiro.eliminarJogadores
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 */
+	public void liberarPeao(int numeroCasaPeao) {
+		// TODO - implement Tabuleiro.liberarPeao
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean avaliarPartidaEmAndamento() {
+		// TODO - implement Tabuleiro.avaliarPartidaEmAndamento
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 * @param deslocamento
+	 */
+	public boolean avaliarMovimentoValido(int numeroCasaPeao, Object deslocamento) {
+		// TODO - implement Tabuleiro.avaliarMovimentoValido
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param tipoJogada
+	 */
+	public String avaliarJogadaPermitida(String tipoJogada) {
+		// TODO - implement Tabuleiro.avaliarJogadaPermitida
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean avaliarPontuacaoSuficiente() {
+		// TODO - implement Tabuleiro.avaliarPontuacaoSuficiente
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean avaliarJogarNovamente() {
+		// TODO - implement Tabuleiro.avaliarJogarNovamente
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param pontuacao
+	 */
+	public Object avaliarPossivelMovimentar(int pontuacao) {
+		// TODO - implement Tabuleiro.avaliarPossivelMovimentar
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean avaliarRestamPeoesJogador() {
+		// TODO - implement Tabuleiro.avaliarRestamPeoesJogador
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean avaliarPontuacaoJogadoresIguais() {
+		// TODO - implement Tabuleiro.avaliarPontuacaoJogadoresIguais
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean avaliarAdversarioPossuiMaiorPontuacao() {
+		// TODO - implement Tabuleiro.avaliarAdversarioPossuiMaiorPontuacao
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 */
+	public Object avaliarCasasAdjacentesOcupadas(Object numeroCasaPeao) {
+		// TODO - implement Tabuleiro.avaliarCasasAdjacentesOcupadas
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean obterLiberacaoEmAndamento() {
+		// TODO - implement Tabuleiro.obterLiberacaoEmAndamento
+		throw new UnsupportedOperationException();
+	}
+
+	private Jogador obterJogadorDaVez() {
+		if (jogador1.obterJogadorDaVez())
+			return jogador1;
+			
+		return jogador2;
+	}
+	
+	public boolean obterPartidaEmAndamento() {
+		return partidaEmAndamento;
+	}
+
+	/**
+	 * 
+	 * @param numeroCasa
+	 */
+	public Casa obterCasa(int numeroCasa) {
+		return casas[numeroCasa - 1];
+	}
+
+	public int obterPontuacaoAtual() {
+		int pontuacaoAtual = 0;
+		
+		for (Graveto graveto : gravetos)
+			if (graveto.obterRiscado())
+				pontuacaoAtual++;
+		
+		return pontuacaoAtual;
+	}
+
+	public ConfiguracaoTabuleiro obterConfiguracaoTabuleiro() {
+		return configuracaoTabuleiro;
+	}
+
+	/**
+	 * 
+	 * @param partidaEmAndamento
+	 */
+	public void alterarPartidaEmAndamento() {
+		partidaEmAndamento = !partidaEmAndamento;
+	}
+
+	public boolean alterarLiberacaoEmAndamento() {
+		// TODO - implement Tabuleiro.alterarLiberacaoEmAndamento
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param pontuacao
+	 */
+	public void alterarPontuacaoAtual(int pontuacao) {
+		// TODO - implement Tabuleiro.alterarPontuacaoAtual
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param nomeJogador
+	 */
+	public void alterarNomeJogadorDaVez(String nomeJogador) {
+		// TODO - implement Tabuleiro.alterarNomeJogadorDaVez
+		throw new UnsupportedOperationException();
+	}
+
+}

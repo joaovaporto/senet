@@ -1,0 +1,82 @@
+package senet;
+
+import br.ufsc.inf.leobr.cliente.Jogada;
+import servidor.*;
+
+public class JogadaSenet implements Jogada {
+
+	protected boolean partidaFinalizada;
+	protected boolean jogadorVenceu;
+	protected Object jogadorDefinePeoes; // TODO - eliminar assim que garantida consistencia
+	protected int pontuacaoAtualizada;
+	protected int casaPeaoMovimentado;
+	protected boolean jogadorPassouVez;
+
+	public JogadaSenet(boolean partidaFinalizada, boolean jogadorVenceu, int pontuacaoAtualizada,
+					   int casaPeaoMovimentado, boolean jogadorPassouVez) {
+		partidaFinalizada = false;
+		jogadorVenceu = false;
+		pontuacaoAtualizada = 0;
+		casaPeaoMovimentado = 0;
+		jogadorPassouVez = false;
+	}
+	
+	public boolean obterPartidaFinalizada() {
+		return partidaFinalizada;
+	}
+
+	public boolean obterJogadorVenceu() {
+		return jogadadorVenceu
+	}
+
+	public boolean obterJogadorDefinePeoes() {
+		// TODO - implement JogadaSenet.obterJogadorDefinePeoes
+		throw new UnsupportedOperationException();
+	}
+
+	public int obterPontuacaoAtualizada() {
+		// TODO - implement JogadaSenet.obterPontuacaoAtualizada
+		throw new UnsupportedOperationException();
+	}
+
+	public int obterCasaPeaoMovimentado() {
+		// TODO - implement JogadaSenet.obterCasaPeaoMovimentado
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean obterJogadorPassouVez() {
+		// TODO - implement JogadaSenet.obterJogadorPassouVez
+		throw new UnsupportedOperationException();
+	}
+
+	public void alterarPartidaFinalizada(boolean partidaFinalizada) {
+		this.partidaFinalizada = partidaFinalizada;
+	}
+
+	public void alterarJogadorVenceu(boolean jogadadorVenceu) {
+		this.jogadorVenceu = jogadadorVenceu;
+	}
+
+	public void alterarPontuacaoAtualizada(int pontuacaoAtualizada) {
+		this.pontuacaoAtualizada = pontuacaoAtualizada;
+	}
+
+	public void alterarJogadorDefinePeoes() {
+		// TODO - implement JogadaSenet.alterarJogadorDefinePeoes
+		throw new UnsupportedOperationException();
+	}
+
+	public void alterarCasaPeaoMovimentado(int casaPeaoMovimentado) {
+		this.casaPeaoMovimentado = casaPeaoMovimentado;
+	}
+
+	/**
+	 * 
+	 * @param jogadorPassouVez 
+	 * @param jogadorPassoVez
+	 */
+	public void alterarJogadorPassouVez(boolean jogadorPassouVez) {
+		jogadorPassouVez = true;
+	}
+
+}

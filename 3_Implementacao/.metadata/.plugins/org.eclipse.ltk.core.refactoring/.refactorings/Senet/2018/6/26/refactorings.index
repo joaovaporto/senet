@@ -1,0 +1,13 @@
+1529809871765	Rename local variable 'n'
+1529809879304	Rename local variable 'd'
+1529809895390	Rename local variable 'desc'
+1529850769039	Rename local variable 'numCasa'
+1529850787243	Rename local variable 'desloc'
+1529859628096	Rename local variable 'casaPeaoMovimentado'
+1529864286233	Rename field 'DESISTIRDAPARTIDA'
+1529875311199	Delete element
+1529890804432	Delete elements
+1529954972558	Rename method 'corPeaoJogadorDefinida'
+1529964994175	Rename method 'haBloqueioDeCasas'
+1530099278979	Rename method 'casaDestinoBloqueada'
+1530128224568	Delete element

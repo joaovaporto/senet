@@ -1,0 +1,188 @@
+package interfaceGrafica;
+
+import servidor.*;
+import senet.*;
+
+public class AtorJogador {
+	protected InterfaceGrafica interfaceGrafica;
+	protected AtorServidor servidor;
+	protected senet.Tabuleiro tabuleiro;
+
+	public AtorJogador() {}
+	
+	public void conectarServidor() {
+		if (servidor.obterServidorConectado()) {
+			if (interfaceGrafica.confirmarAcao("alterar servidor"))
+				alterarServidor();
+		} else if (procederConectarServidor())
+			interfaceGrafica.exibirMensagem("Conectado", Constante.SUCESSO_CONECTAR);
+	}
+	
+	public void desconectarServidor() {
+		if (tabuleiro.obterPartidaEmAndamento())
+			if (!procederDesistirPartida())
+				return;
+		
+		if (servidor.desconectar())
+			interfaceGrafica.exibirMensagem("", Constante.SUCESSO_DESCONECTAR);
+		
+		interfaceGrafica.exibirMensagem("", Constante.FRACASSO_DESCONECTAR);
+	}
+
+	public boolean procederConectarServidor() {
+		String[] dados;
+		String[] nomesDados = {"nome jogador", "nome servidor"};
+		
+		dados = interfaceGrafica.obterDados("Dados para conexão", nomesDados);
+		
+		while (dados != null && (dados[0].length() < 1 || dados[1].length() < 1)) {
+			interfaceGrafica.exibirMensagem("", Constante.DADOS_INCORRETOS);
+			dados = interfaceGrafica.obterDados("Dados para conexão", nomesDados);
+		}
+		
+		if (dados == null)
+			return false;
+		
+		if (servidor.conectar(dados[0], dados[1]))
+			return true;
+			
+		interfaceGrafica.exibirMensagem("", Constante.FRACASSO_CONECTAR);
+		return false;	
+	}
+
+	public void alterarServidor() {
+		if (tabuleiro.obterPartidaEmAndamento())
+			if (!procederDesistirPartida())
+				return;
+		
+		if (!servidor.desconectar())
+			interfaceGrafica.exibirMensagem("Erro", "Alterar servidor" + Constante.ERRO_NAO_CONECTADO);
+		else if (procederConectarServidor())
+			interfaceGrafica.exibirMensagem("Alterado", Constante.SUCESSO_ALTERAR);
+		else if (!servidor.restabelecerConexao())
+			interfaceGrafica.exibirMensagem("Não conectado", Constante.FRACASSO_ALTERAR);
+	}
+
+	public void iniciarNovaPartida() {
+		if (tabuleiro.obterPartidaEmAndamento())
+			if (!procederDesistirPartida())
+				return;
+		
+		if (!servidor.iniciarPartida())
+			interfaceGrafica.exibirMensagem("Erro", "Iniciar partida" + Constante.ERRO_NAO_CONECTADO);
+	
+		receberSolicitacaoInicio(1, "Joao", "Vitor");
+	}
+
+	public Object desistirPartida() {
+		// TODO - implement AtorJogador.procederDesistirPartida
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean procederDesistirPartida() {
+		// TODO - implement AtorJogador.procederDesistirPartida
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param jogada
+	 */
+	public void receberJogada(JogadaSenet jogada) {
+
+	}
+
+	/**
+	 * 
+	 * @param posicao
+	 * @param nomeJogador
+	 * @param nomeAdversario
+	 */
+	public void receberSolicitacaoInicio(int posicao, String nomeJogador, String nomeAdversario) {
+		tabuleiro.iniciarNovaPartida(posicao, nomeJogador, nomeAdversario);
+		interfaceGrafica.alterarConfiguracaoTabuleiro(tabuleiro.obterConfiguracaoTabuleiro());
+		
+		if (posicao == 1)
+			interfaceGrafica.exibirMensagem("Começando partida", Constante.JOGADOR_COMECA_LANC);
+		else
+			interfaceGrafica.exibirMensagem("Começando partida", Constante.ADVERSARIO_COMECA_LANC);
+	}
+
+	public boolean sair() {
+		if (tabuleiro.obterPartidaEmAndamento())
+			if (!procederDesistirPartida())
+				return false;
+		
+		return true;
+	}
+
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 */
+	public void declararLiberacaoPeao(int numeroCasaPeao) {
+		tabuleiro.declararLiberacaoPeao(numeroCasaPeao);
+		interfaceGrafica.alterarConfiguracaoTabuleiro(tabuleiro.obterConfiguracaoTabuleiro());
+	}
+
+	public void lancarGravetos() {
+		JogadaSenet jogada;
+		
+		if ((jogada = tabuleiro.lancarGravetos()) == null)
+			return;
+
+		servidor.enviarJogada(jogada);
+		interfaceGrafica.alterarConfiguracaoTabuleiro(tabuleiro.obterConfiguracaoTabuleiro());
+	}
+
+	/**
+	 * 
+	 * @param numeroCasaPeao
+	 */
+	public Object moverPeao(Object numeroCasaPeao) {
+		// TODO - implement AtorJogador.moverPeao
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param configuracaoTabuleiro
+	 */
+	public void atualizarExibicaoTabuleiro(ConfiguracaoTabuleiro configuracaoTabuleiro) {
+
+	}
+
+	/**
+	 * 
+	 * @param mensagem
+	 */
+	public void receberMensagem(String mensagem) {
+		interfaceGrafica.exibirMensagem(mensagem, mensagem);
+	}
+	
+	public String obterCorPeaoEscolhida() {
+		Object[] opcoes = {"claro", "escuro"};
+		
+		if (obterOpcao(opcoes, "Escolha a cor de seus peões", "Escolher cor") == 0)
+			return Constante.PEAO_CLARO;
+		
+		return Constante.PEAO_ESCURO;
+	}
+	
+	public String[] obterDadosConexao() {
+		// TODO - implement AtorJogador.obterDadosConexao
+		throw new UnsupportedOperationException();
+	}
+	
+	public void alterarInterfaceGrafica(InterfaceGrafica interfaceGrafica) {
+		this.interfaceGrafica = interfaceGrafica;
+	}
+	
+	public void alterarServidor(AtorServidor servidor) {
+		this.servidor = servidor;
+	}
+	
+	public void alterarTabuleiro(senet.Tabuleiro tabuleiro) {
+		this.tabuleiro = tabuleiro;
+	}
+}
