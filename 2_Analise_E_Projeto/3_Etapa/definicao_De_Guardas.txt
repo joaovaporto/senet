@@ -1,0 +1,10 @@
+[conectar] = clique no item de menu "Conectar servidor"
+[alterar] = clique no item de menu "Alterar servidor"
+[desconectar] = clique no item de menu "Desconectar"
+[proceder] = clique sobre um peao OR clique no botão ("LANÇAR GRAVETOS" OR "TRÊS-VERDADES" OR "RE-ATOUM")
+[desistir] = clique no item de menu "Desistir da partida"
+[solicitar ajuda] = clique no item de menu "Ajuda"
+[sair] = clique no item de menu "Sair"
+
+01/05
+[alterar] = [clique em alterar OR (clique em conectar AND conectado]
