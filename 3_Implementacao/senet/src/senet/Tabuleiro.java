@@ -166,23 +166,24 @@ public class Tabuleiro {
 				   jogador2.obterQtdPeoesLiberados());
 	}
 
-	public void declararLiberacaoPeao(int numeroCasaPeao) {
+	public boolean declararLiberacaoPeao(int numeroCasaPeao) {
 		if (!ehTurnoDoJogador())
-			return;
+			return false;
 		
 		if (!avaliarCorPeaoJogadorDefinida()) {
 			atorJogador.receberMensagem(Constante.SEM_COR_PEAO_DEFINIDA);
-			return;
+			return false;
 		}
 		
 		if (!ehCasaOcupadaPorPeaoJogador(numeroCasaPeao)) {
 			atorJogador.receberMensagem(Constante.SEM_PEAO_LIBERACAO);
-			return;
+			return false;
 		}
 		
 		jogador1.alterarNumeroCasaPeaoLiberacao(numeroCasaPeao);
 		alterarLiberacaoEmAndamento();
 		atorJogador.receberMensagem(Constante.LIBERACAO_DECLARADA);
+		return true;
 	}
 	
 	public boolean ehCasaOcupadaPorPeaoJogador(int numeroCasaPeao) {

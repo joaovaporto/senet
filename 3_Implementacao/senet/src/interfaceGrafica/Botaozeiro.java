@@ -65,10 +65,8 @@ public class Botaozeiro extends JPanel {
 
 	public void alterarConfiguracao(int numeroCasaPeaoLiberacao) {
 		switch (numeroCasaPeaoLiberacao) {
-			case 28: tresVerdades.setBackground(new Color(91, 155, 213)); break;
-			case 29: reAtoum.setBackground(new Color(91, 155, 213)); break;
-			case 0: tresVerdades.setBackground(Color.WHITE);
-					 reAtoum.setBackground(Color.WHITE);
+			case 28: tresVerdades.setBackground(Color.WHITE); break;
+			case 29: reAtoum.setBackground(Color.WHITE); break;
 		}
 	}
 }

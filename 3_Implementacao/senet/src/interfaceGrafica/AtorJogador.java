@@ -123,7 +123,9 @@ public class AtorJogador {
 	}
 
 	public void declararLiberacaoPeao(int numeroCasaPeao) {
-		tabuleiro.declararLiberacaoPeao(numeroCasaPeao);
+		if (!tabuleiro.declararLiberacaoPeao(numeroCasaPeao))
+			return;
+		
 		alterarConfiguracaoTabuleiro();
 	}
 
