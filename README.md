@@ -1,4 +1,3 @@
-===============================================================================================
 SENET
 ===============================================================================================
 
@@ -8,7 +7,6 @@ Autor			João V. A. Porto
 
 Senet is a game created in the context of the Software Engineering I course of INE/UFSC. It's based in the Egyptian boardgame of the same name.
 
-===============================================================================================
 SUMÁRIO
 ===============================================================================================
 
@@ -16,7 +14,6 @@ SUMÁRIO
 2. Instruções para jogar
 3. Considerações sobre esta versão
 
-===============================================================================================
 1. INSTRUÇÕES DE INSTALAÇÃO E USO
 ===============================================================================================
 
@@ -32,7 +29,6 @@ INSTALAÇÃO E EXECUÇÃO
 1. Não há necessidade de instalar o jogo, estando ele apto ao uso a partir da execução
    do arquivo senet.jar presente no mesmo diretório deste documento.
 
-===============================================================================================
 2. INSTRUÇÕES PARA JOGAR
 ===============================================================================================
 
@@ -47,7 +43,6 @@ INSTALAÇÃO E EXECUÇÃO
    5.2 A casa Re-Atoum é a penúltima e necessita de 2 pontos para liberar o peão.
 6. Quem liberar todos os peões antes vence.
 
-===============================================================================================
 3. CONSIDERAÇÕES SOBRE ESTA VERSÃO
 ===============================================================================================
 
