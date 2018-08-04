@@ -1,9 +1,0 @@
-package senet;
-
-public class SemPeoesDefinidosException extends RuntimeException {
-	private static final long serialVersionUID = 1L;
-	
-	public SemPeoesDefinidosException() {
-		super("Cor dos peões ainda não definida.");
-	}
-}

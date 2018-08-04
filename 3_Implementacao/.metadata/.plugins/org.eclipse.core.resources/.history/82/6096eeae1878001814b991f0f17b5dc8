@@ -1,9 +1,0 @@
-package senet;
-
-public class SemVezJogadorException extends RuntimeException {
-	private static final long serialVersionUID = 1L;
-
-	public SemVezJogadorException() {
-		super("A vez é do adversário.");
-	}
-}

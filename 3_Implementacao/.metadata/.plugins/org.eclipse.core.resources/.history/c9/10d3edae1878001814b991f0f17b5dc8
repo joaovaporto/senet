@@ -1,9 +1,0 @@
-package senet;
-
-public class SemPartidaException extends RuntimeException {
-	private static final long serialVersionUID = 1L;
-
-	public SemPartidaException() {
-		super("Sem partida em andamento.");
-	}
-}

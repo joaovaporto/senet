@@ -1,8 +1,0 @@
-questoes
-
-1. receber mensagem permance?
-2. proceder lance, receber jogada e receber estado da partida, em que ordem?
-3. para onde ir após desistir partida?
-
-proceder lance -> proceder jogada
-eliminar receber mensagem

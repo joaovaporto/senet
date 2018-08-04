@@ -1,5 +1,0 @@
-package senet;
-
-public class SemPartidaException extends RuntimeException {
-
-}
