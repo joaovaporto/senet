@@ -6,8 +6,6 @@ Versão			0.1
 Data			27/06/2018
 Autor			João V. A. Porto
 
-Senet is a game created in the context of the Software Engineering I course of INE/UFSC. It's based in the Egyptian boardgame of the same name.
-
 ===============================================================================================
 SUMÁRIO
 ===============================================================================================
