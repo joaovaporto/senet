@@ -1,7 +1,5 @@
 package interfaceGrafica;
 
-ATOM
-
 import servidor.*;
 import senet.*;
 
