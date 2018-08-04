@@ -4,5 +4,6 @@
 	<classpathentry excluding="NetGamesNRT/" kind="src" path="src"/>
 	<classpathentry kind="lib" path="netgames/ngnrtFramework.jar"/>
 	<classpathentry kind="lib" path="netgames"/>
+	<classpathentry kind="lib" path="bibliotecas/trng-bin-1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

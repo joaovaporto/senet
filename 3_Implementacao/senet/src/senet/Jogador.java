@@ -1,6 +1,6 @@
 package senet;
 
-import java.util.Random;
+//import java.util.Random;
 
 public class Jogador {
 
@@ -25,11 +25,18 @@ public class Jogador {
 	}
 
 	public int sortearPontuacao() {
-		Random gerador;
+		/*Random gerador;
 		int pontuacao;
 		
 		gerador = new Random();
 		pontuacao = gerador.nextInt(5) + 1;
+		alterarPontuacao(pontuacao);*/
+		
+		GeradorAleatoriedade gerador;
+		int pontuacao;
+		
+		gerador = new GeradorAleatoriedade();
+		pontuacao = gerador.obterInteiroAleatorio(5) + 1;
 		alterarPontuacao(pontuacao);
 		
 		return pontuacao;

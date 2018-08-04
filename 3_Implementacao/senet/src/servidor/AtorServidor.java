@@ -99,7 +99,7 @@ public class AtorServidor implements OuvidorProxy {
 	}
 
 	public String obterNomeServidor() {
-		return obterNomeServidor();
+		return nomeServidor;
 	}
 
 	public void alterarNomeJogador(String nomeJogador) {
