@@ -1,57 +1,57 @@
 SENET
-===============================================================================================
+======================================================================================
 
-Vers„o			0.1
+Vers√£o			0.1
 Data			27/06/2018
-Autor			Jo„o V. A. Porto
+Autor			Jo√£o V. A. Porto
 
-Senet is a game created in the context of the Software Engineering I course of INE/UFSC. It's based in the Egyptian boardgame of the same name.
+Senet is a game created in the context of the Software Engineering I course of INE/UFSC. It's based on the Egyptian boardgame of the same name.
 
-SUM¡RIO
-===============================================================================================
+SUM√ÅRIO
+=======================================================================================
 
-1. InstruÁıes de instalaÁ„o e execuÁ„o
-2. InstruÁıes para jogar
-3. ConsideraÁıes sobre esta vers„o
+1. Instru√ß√µes de instala√ß√£o e execu√ß√£o
+2. Instru√ß√µes para jogar
+3. Considera√ß√µes sobre esta vers√£o
 
-1. INSTRU«’ES DE INSTALA«√O E USO
-===============================================================================================
+1. INSTRU√á√ïES DE INSTALA√á√ÉO E USO
+=======================================================================================
 
-DEPEND NCIA(S)
+DEPEND√äNCIA(S)
 1. Java SE Runtime Environment 8 ou superior.
-2. Para utilizar o jogo È necess·rio ter acesso a Internet e um endereÁo de servidor
-   para que seja possÌvel estabelecer conex„o com outros usu·rios. O seguinte endereÁo
+2. Para utilizar o jogo √© necess√°rio ter acesso a Internet e um endere√ßo de servidor
+   para que seja poss√≠vel estabelecer conex√£o com outros usu√°rios. O seguinte endere√ßo
    pode ser usado para esse fim: netgames.labsoft.ufsc.br. Alternativamente, um servidor
    local pode ser usado.
 
 
-INSTALA«√O E EXECU«√O
-1. N„o h· necessidade de instalar o jogo, estando ele apto ao uso a partir da execuÁ„o
-   do arquivo senet.jar presente no mesmo diretÛrio deste documento.
+INSTALA√á√ÉO E EXECU√á√ÉO
+1. N√£o h√° necessidade de instalar o jogo, estando ele apto ao uso a partir da execu√ß√£o
+   do arquivo senet.jar presente no mesmo diret√≥rio deste documento.
 
-2. INSTRU«’ES PARA JOGAR
-===============================================================================================
+2. INSTRU√á√ïES PARA JOGAR
+========================================================================================
 
 1. Conecte-se a um servidor.
 2. Inicie uma nova partida.
-3. Lance os gravetos ou espere seu advers·rio lanÁar para decidir quem inicia e escolhe
-   a cor dos peıes.
-4. Antes de mover um pe„o, sempre lance os gravetos para definir quantas casas seu pe„o
-   poder· andar.
-5. Para liberar um pe„o clique no bot„o da casa correspondente antes de lanÁar os gravetos.
-   5.1 A casa das trÍs verdades È a antepen˙ltima e necessita de 3 pontos para liberar o pe„o.
-   5.2 A casa Re-Atoum È a pen˙ltima e necessita de 2 pontos para liberar o pe„o.
-6. Quem liberar todos os peıes antes vence.
+3. Lance os gravetos ou espere seu advers√°rio lan√ßar para decidir quem inicia e escolhe
+   a cor dos pe√µes.
+4. Antes de mover um pe√£o, sempre lance os gravetos para definir quantas casas seu pe√£o
+   poder√° andar.
+5. Para liberar um pe√£o clique no bot√£o da casa correspondente antes de lan√ßar os gravetos.
+   5.1 A casa das tr√™s verdades √© a antepen√∫ltima e necessita de 3 pontos para liberar o pe√£o.
+   5.2 A casa Re-Atoum √© a pen√∫ltima e necessita de 2 pontos para liberar o pe√£o.
+6. Quem liberar todos os pe√µes antes vence.
 
-3. CONSIDERA«’ES SOBRE ESTA VERS√O
-===============================================================================================
+3. CONSIDERA√á√ïES SOBRE ESTA VERS√ÉO
+=========================================================================================
 
 ASPECTOS POSITIVOS
-1. Esta vers„o do jogo possibilita, alÈm das funcionalidades b·sicas de conex„o e desconex„o,
-   a alteraÁ„o do servidor ao qual o jogador est· conectado.
+1. Esta vers√£o do jogo possibilita, al√©m das funcionalidades b√°sicas de conex√£o e desconex√£o,
+   a altera√ß√£o do servidor ao qual o jogador est√° conectado.
 2. Permite ao jogador desistir de uma partida em andamento sem sair do jogo ou 
    desconectar-se do servidor.
 
 ASPECTOS NEGATIVOS
 1. Interface pouco intuitiva.
-2. Excesso de caixas de di·logo para comunicaÁ„o do jogo com jogador pode ser um incÙmodo.
+2. Excesso de caixas de di√°logo para comunica√ß√£o do jogo com jogador pode ser um inc√¥modo.
